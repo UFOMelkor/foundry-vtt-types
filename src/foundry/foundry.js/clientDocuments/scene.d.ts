@@ -1,5 +1,5 @@
 import { ConfiguredDocumentClass, ConstructorDataType, PropertiesToSource } from '../../../types/helperTypes';
-import { DocumentModificationOptions } from '../../common/abstract/document.mjs';
+import Document, { DocumentModificationOptions } from '../../common/abstract/document.mjs';
 import { AmbientLightDataProperties } from '../../common/data/data.mjs/ambientLightData';
 import { AmbientSoundDataProperties } from '../../common/data/data.mjs/ambientSoundData';
 import { DrawingDataProperties } from '../../common/data/data.mjs/drawingData';
@@ -19,7 +19,7 @@ declare global {
    * @see {@link applications.SceneConfig}    The Scene configuration application
    *
    */
-  class Scene extends ClientDocumentMixin(foundry.documents.BaseScene) {
+  class Scene extends ClientDocumentMixin(foundry.documents.BaseScene) implements Document<any, any> {
     /**
      * @param data - Initial data provided to construct the Scene document
      */
@@ -126,11 +126,7 @@ declare global {
     ): Promise<void>;
 
     /** @override */
-    protected _onUpdate(
-      changed: DeepPartial<foundry.data.SceneData['_source']> & Record<string, unknown>,
-      options: DocumentModificationOptions,
-      userId: string
-    ): void;
+    protected _onUpdate(changed: any, options: DocumentModificationOptions, userId: string): void;
 
     /** @override */
     protected _preDelete(options: DocumentModificationOptions, user: foundry.documents.BaseUser): Promise<void>;

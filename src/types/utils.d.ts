@@ -6,9 +6,22 @@ declare type DeepPartial<T> = T extends Array<infer U>
   ? Array<DeepPartial<U>>
   : T extends ReadonlyArray<infer U>
   ? ReadonlyArray<DeepPartial<U>>
-  : {
-      [P in keyof T]?: Exclude<T[P], undefined> extends object ? DeepPartial<Exclude<T[P], undefined>> : T[P];
-    };
+  : DeepPartialObject<T, OptionalKeys<T>>;
+
+declare type OptionalKeys<T> = {
+  [K in keyof T]-?: {} extends Pick<T, K> ? K : never;
+}[keyof T];
+
+declare type DeepPartialObject<T, OptionalKeys extends keyof T> = DeepPartialMakeOrUndefined<Omit<T, OptionalKeys>> &
+  DeepPartialMakeOptional<Pick<T, OptionalKeys>>;
+
+declare type DeepPartialMakeOrUndefined<T> = {
+  [P in keyof T]: DeepPartial<T[P]> | undefined;
+};
+
+declare type DeepPartialMakeOptional<T> = {
+  [P in keyof T]?: DeepPartial<T[P]>;
+};
 
 /**
  * References the constructor of type `T`

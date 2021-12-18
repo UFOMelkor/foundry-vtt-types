@@ -69,7 +69,7 @@ declare global {
     refresh(): this;
 
     /** @override */
-    protected _onUpdate(data: Note.Data): Promise<this>;
+    protected _onUpdate(data: any): Promise<this>;
 
     /** @override */
     protected _canHover(user: User): true;

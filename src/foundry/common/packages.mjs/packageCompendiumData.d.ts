@@ -42,19 +42,21 @@ interface PackageCompendiumDataProperties {
 }
 
 interface PackageCompendiumDataConstructorData {
+  // TODO: somewhere, something has below changed properties marked as optional and/or | undefined...
+
   /** The canonical compendium name. This should contain no spaces or special characters. */
-  name: string;
+  name?: string;
 
   /** The human-readable compendium name. */
-  label: string;
+  label?: string;
 
   /** The local relative path to the compendium source .db file. The filename should match the name attribute. */
-  path: string;
+  path?: string;
 
   private?: boolean | null;
 
   /** The specific document type that is contained within this compendium pack */
-  entity: foundry.CONST.CompendiumEntityType;
+  entity?: foundry.CONST.CompendiumEntityType;
 
   /** Denote that this compendium pack requires a specific game system to function properly. */
   system?: string;

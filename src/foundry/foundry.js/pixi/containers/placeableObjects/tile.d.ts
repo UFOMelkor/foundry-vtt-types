@@ -85,7 +85,7 @@ declare global {
     activateListeners(): void;
 
     /** @override */
-    protected _onUpdate(data: Tile.Data): void;
+    protected _onUpdate(data: any): void;
 
     /** @override */
     protected _canHUD(user?: User, event?: any): boolean;

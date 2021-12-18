@@ -62,7 +62,7 @@ export interface PackageDataSchema extends DocumentSchema {
 
 export interface PackageDataProperties {
   /** The canonical package name, should be lower-case with no spaces or special characters */
-  name?: string;
+  name: string;
 
   /** The human-readable package title, containing spaces and special characters */
   title?: string;

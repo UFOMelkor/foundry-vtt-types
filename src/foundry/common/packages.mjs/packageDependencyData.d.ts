@@ -27,8 +27,10 @@ interface PackageDependencyDataProperties {
 }
 
 interface PackageDependencyDataConstructorData {
+  // TODO: somewhere, something has name marked as optional and/or | undefined...
+
   /** The dependency package name */
-  name: string;
+  name?: string;
 
   /** The dependency package type, from CONST.PACKAGE_TYPES */
   type?: foundry.CONST.PackageTypes | null;

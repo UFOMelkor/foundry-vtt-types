@@ -33,8 +33,9 @@ interface PackageLanguageDataProperties {
 }
 
 interface PackageLanguageDataConstructorData {
+  // TODO: somewhere, something has lang marked as optional and/or | undefined...
   /** A string language code which is validated by Intl.getCanonicalLocales */
-  lang: string;
+  lang?: string;
 
   /** The human-readable language name */
   name?: string | null;

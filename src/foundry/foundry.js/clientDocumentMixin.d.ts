@@ -157,7 +157,7 @@ export declare class ClientDocumentMixin<T extends foundry.abstract.Document<any
    * @param options - Sorting options provided to SortingHelper.performIntegerSort
    * @returns The Document after it has been re-sorted
    */
-  sortRelative(options: SortOptions<this>): Promise<this>;
+  sortRelative(options: any): Promise<any>;
 
   /**
    * @see abstract.Document#_onCreate
@@ -167,11 +167,7 @@ export declare class ClientDocumentMixin<T extends foundry.abstract.Document<any
   /**
    * @see abstract.Document#_onUpdate
    */
-  protected _onUpdate(
-    data: DeepPartial<T['data']['_source']>,
-    options: DocumentModificationOptions,
-    userId: string
-  ): void;
+  protected _onUpdate(data: any, options: DocumentModificationOptions, userId: string): void;
 
   /**
    * @see abstract.Document#_onDelete

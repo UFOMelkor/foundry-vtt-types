@@ -32,7 +32,9 @@ interface PackageAuthorDataProperties {
 }
 
 interface PackageAuthorDataConstructorData {
-  name: string;
+  // TODO: somewhere, something has name marked as optional and/or | undefined...
+  name?: string;
+
   email?: string | null;
   url?: string | null;
   discord?: string | null;

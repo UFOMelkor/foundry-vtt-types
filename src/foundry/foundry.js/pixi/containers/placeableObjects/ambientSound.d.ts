@@ -98,7 +98,7 @@ declare global {
     protected _onCreate(): void;
 
     /** @override */
-    protected _onUpdate(data: AmbientSound.Data): void;
+    protected _onUpdate(data: any): void;
 
     /** @override */
     protected _onDelete(): void;
